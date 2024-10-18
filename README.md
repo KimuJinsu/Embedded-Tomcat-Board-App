@@ -101,7 +101,6 @@ public class User extends BaseEntity {
 }
 ```
 
-
 ### 2. **Post**
 - 게시판의 게시글을 나타내는 엔티티입니다.
 - 게시글 정보는 `title`, `text`, `email`, `ipAddress`와 같은 필드를 포함하며, 여러 개의 댓글을 가질 수 있습니다.
@@ -470,6 +469,7 @@ public class PostDto {
     private List<CommentDto> commentList;
 }
 ```
+
 ### PostMapper 주요 기능:
 - **Post 엔티티를 PostDto로 변환 (`toDto`)**:
   - `Post` 엔티티의 필드를 `PostDto`로 매핑.
@@ -638,11 +638,6 @@ public class PostController {
     // properties 파일에 적용 예상
     private static final int PAGE_SIZE = 10; // 한 페이지에 표시할 게시글 수
 
-    
-    
-    
-    
-    
  // PostController.java
     @GetMapping("/user/{userId}/posts")
     public String getPostsByUser(@PathVariable Long userId, Model model) {
@@ -682,7 +677,6 @@ public class PostController {
         return "post/list";
     }
 
-
     // 게시글 상세 조회 및 댓글 표시
     @GetMapping("/{id}")
     public String getPostById(@PathVariable("id") Long id, Model model) {
@@ -708,7 +702,6 @@ public class PostController {
         return "post/new";
     }
 
-    
 //////////////////////////////새로 추가한 부분//////////////////////////////////////
     @PostMapping
     @Transactional // 이 부분 추가
@@ -741,9 +734,6 @@ public class PostController {
     }
 //////////////////////////////새로 추가한 부분//////////////////////////////////////
     
-    
-    
-    
     // 게시글 삭제
     @PostMapping("/{postId}/delete")
     public String deletePost(@PathVariable("postId") Long postId) {
@@ -753,9 +743,6 @@ public class PostController {
         }
         return "redirect:/posts";
     }
-
-    
-    
 //////////////////////////////새로 추가한 부분//////////////////////////////////////
     
     // 댓글 추가
@@ -942,8 +929,6 @@ public class PostController {
         return "redirect:/posts/" + id;  // 수정된 게시글 페이지로 리다이렉트
     }
 
-    
- 
 }
 ```
 
@@ -997,14 +982,16 @@ List<Post> posts = query.getResultList();
 #### 실행 화면
 ##### 게시물에 달린 모든 댓글이 목록으로 표시되며, 각 댓글의 작성자와 내용이 함께 나타납니다.
 ![프로젝트 실행](images/무제6.png)
-- **댓글 삭제**: 댓글을 작성한 사용자가 댓글을 삭제할 수 있습니다.
 
 - **댓글 수정**: 사용자가 작성한 댓글을 수정할 수 있습니다.
+
 #### 실행 화면
 ##### 사용자가 기존에 작성한 댓글을 수정할 수 있는 폼이 표시됩니다. 댓글의 내용을 수정하고 "수정" 버튼을 눌러 댓글을 업데이트할 수 있습니다.
 ![프로젝트 실행](images/무제7.png)
 ##### 수정된 댓글이 성공적으로 저장된 후, 수정된 내용이 게시물에 반영됩니다.
 ![프로젝트 실행](images/무제8.png)
+
+- **댓글 삭제**: 댓글을 작성한 사용자가 댓글을 삭제할 수 있습니다.
 
 #### 실행 화면
 ##### 댓글 삭제 버튼을 눌러 댓글을 삭제하는 화면입니다.
