@@ -1,4 +1,4 @@
-# Embedded-Tomcat-App-Board
+# Embedded-Tomcat-App-Board.
 
 이 프로젝트는 **Spring Framework**와 **JPA**를 사용하여 만든 간단한 **게시판** 애플리케이션입니다. 웹 서버 관리는 **Embedded Tomcat**을 사용하여 처리합니다.
 
